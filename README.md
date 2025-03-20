@@ -2,12 +2,6 @@
 
 Ein einfaches Python-Skript, das CityBuild Toplist-Daten aus Minecraft-Logdateien extrahiert und optional als ZIP-Archiv speichert.
 
-## Installation
-
-1. **[Python installieren](https://www.python.org/downloads/)**
-
-2. **Skript herunterladen und in Ordner ablegen**
-
 ## Nutzung
 
 ### Parameter
@@ -17,6 +11,10 @@ Ein einfaches Python-Skript, das CityBuild Toplist-Daten aus Minecraft-Logdateie
 - **`--pack`** *(optional)* – erstellt nach der Verarbeitung eine ZIP-Datei des Ausgabeordners.
 - **`--threading`** *(optional)* – aktiviert Multithreading für besonders große Verzeichnisse.
     - **Hinweis:** Falls eine chronologisch geordnete Ausgabe wichtig ist, sollte diese Option nicht genutzt werden.
+
+### Demo
+
+**[Video Link](https://www.youtube.com/watch?v=Do2OcHd_0_k)**
 
 ### Beispiel
 
