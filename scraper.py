@@ -186,7 +186,7 @@ class LogScraper:
         drop_match = self.crate_drop_pattern.search(line)
         if drop_match:
             reward = drop_match.group(1) or drop_match.group(2)
-            if "$" or "Item" in reward:
+            if "$" in reward or "Item" in reward:
                 return False
             self.file_handler.write(OutputType.CrateDrop, f"{date_time} {reward}")
             return True
