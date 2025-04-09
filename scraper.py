@@ -186,8 +186,11 @@ class LogScraper:
         drop_match = self.crate_drop_pattern.search(line)
         if drop_match:
             reward = drop_match.group(1) or drop_match.group(2)
-            if "$" in reward or "Item" in reward:
+
+            filtered = ["$", "Item", "keinen Zugriff", "den Kopf", "XP", "Belohnung", "reward"]
+            if any(keyword in reward for keyword in filtered):
                 return False
+
             self.file_handler.write(OutputType.CrateDrop, f"{date_time} {reward}")
             return True
 
