@@ -8,8 +8,6 @@ from concurrent.futures import ProcessPoolExecutor
 
 from enum import Enum
 
-import dateutil
-
 
 class OutputType(Enum):
     Warp = "Warp Top"
