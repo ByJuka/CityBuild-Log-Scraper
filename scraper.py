@@ -66,7 +66,7 @@ class LogScraper:
 
         self.toplist_pattern = re.compile(r"\[(\d{2}:\d{2}:\d{2})].*?#(\d+)\s+([^\[]+)")
         self.crate_open_pattern = re.compile(
-            r"\b(?:ffnest eine crate vom typ|you are opening a crate of the type) ([^\[]+)\b",
+            r"\b(?:öffnest eine crate vom typ|you are opening a crate of the type) ([^\[]+)\b",
             re.IGNORECASE
         )
         self.crate_drop_pattern = re.compile(
@@ -115,7 +115,7 @@ class LogScraper:
 
         try:
             archive_path = os.path.join(self.input_dir, archive)
-            with gzip.open(archive_path, "rt", errors="replace") as log_file:
+            with gzip.open(archive_path, "rt", encoding="utf-8", errors="replace") as log_file:
                 for line in log_file:
                     self.process_line(line, date)
             print(f"Finished {archive}")
@@ -158,12 +158,11 @@ class LogScraper:
             return False
 
         category = OutputType.Unsorted
-        if "Besuche" in info or "visits" in info:
+        if "Besuch" in info or "visit" in info:
             category = OutputType.Warp
         elif "$" in info:
             category = OutputType.Guild
         elif "Level" in info:
-            info = info.replace("?", "★")
             category = OutputType.Level
         elif "Job-XP" in info or "Job XP" in info:
             category = OutputType.Job
